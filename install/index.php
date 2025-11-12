@@ -19,7 +19,7 @@ class ceteralabs_recaptcha extends CModule
     {
         $this->MODULE_NAME = Loc::GetMessage("CETERALABS_RECAPTCHA_MODULE_NAME");
         $this->MODULE_DESCRIPTION = Loc::GetMessage("CETERALABS_RECAPTCHA_MODULE_DESCRIPTION");
-        $this->PARTNER_NAME = "Cetera labs";
+        $this->PARTNER_NAME = "Cetera Labs";
         $this->PARTNER_URI = "http://cetera.ru";
 
         $arModuleVersion = [];
