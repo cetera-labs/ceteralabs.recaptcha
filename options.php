@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && check_bitrix_sessid()) {
 
 $publicKey = Option::get($module_id, 'recaptchaPublicKey', '');
 $secretKey = Option::get($module_id, 'recaptchaSecretKey', '');
-$label     = Option::get($module_id, 'recaptcha_label', Loc::getMessage("CETERALABS_RECAPTCHA_LABEL") ?: 'Подтвердите, что вы не робот');
-$errorMsg  = Option::get($module_id, 'recaptcha_error', 'Вы не прошли проверку капчей');
+$label     = Option::get($module_id, 'recaptcha_label', '');
+$errorMsg  = Option::get($module_id, 'recaptcha_error', '');
 $active    = Option::get($module_id, 'active', 'N');
 ?>
 
