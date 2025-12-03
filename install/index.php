@@ -35,6 +35,8 @@ class ceteralabs_recaptcha extends CModule
         ModuleManager::registerModule($this->MODULE_ID);
         RegisterModuleDependences('main', 'OnPageStart', $this->MODULE_ID, '\\Ceteralabs\\Recaptcha\\EventHandlers\\Main', 'OnPageStart');
         RegisterModuleDependences('main', 'OnEndBufferContent', $this->MODULE_ID, '\\Ceteralabs\\Recaptcha\\EventHandlers\\Main', 'OnEndBufferContent');
+
+        $this->installFiles();
     }
 
     public function DoUninstall()
@@ -42,5 +44,21 @@ class ceteralabs_recaptcha extends CModule
         UnRegisterModuleDependences('main', 'OnPageStart', $this->MODULE_ID, '\\Ceteralabs\\Recaptcha\\EventHandlers\\Main', 'OnPageStart');
         UnRegisterModuleDependences('main', 'OnEndBufferContent', $this->MODULE_ID, '\\Ceteralabs\\Recaptcha\\EventHandlers\\Main', 'OnEndBufferContent');
         ModuleManager::unRegisterModule($this->MODULE_ID);
+
+        $this->UnInstallFiles();
+    }
+
+    function installFiles()
+    {
+        CopyDirFiles($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/" . $this->MODULE_ID . "/install/js", $_SERVER["DOCUMENT_ROOT"] . "/bitrix/js/" . $this->MODULE_ID, true, true);
+
+        return true;
+    }
+
+    function UnInstallFiles()
+    {
+        DeleteDirFilesEx("/bitrix/js/" . $this->MODULE_ID);
+
+        return true;
     }
 }

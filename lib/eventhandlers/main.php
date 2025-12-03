@@ -118,7 +118,7 @@ class Main
 
         $script = '<script data-skip-moving="true">' . 'window.recaptchaOptions=' . \CUtil::PhpToJSObject(['key' => $siteKey]) . ';' . '</script>';
         $script .= '<script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>';
-        $script .= '<script src="/local/modules/' . self::MODULE_ID . '/assets/script.js" data-skip-moving="true"></script>';
+        $script .= '<script src="/bitrix/js/' . self::MODULE_ID . '/script.js" data-skip-moving="true"></script>';
 
         if (stripos($content, '</head>') !== false) {
             $content = preg_replace('/<\/head>/i', $script . '</head>', $content, 1);
